@@ -3,7 +3,7 @@
 		<view class="left-header logo">
 			<navigator class="logo" open-type="reLaunch" url="/pages/component/view/view">
 				<image src="../static/logo.png" mode="heightFix" style="width: 30px;"></image>
-				<text>hello uni-app</text>
+				<text>mytool zone</text>
 			</navigator>
 		</view>
 		<custom-tab-bar class="tab-bar-flex" direction="horizontal" :show-icon="false" :selected="current"
@@ -38,7 +38,9 @@
 					component: 0,
 					API: 1,
 					extUI: 2,
-					template: 3
+					template: 3,
+					websites: 4,
+					home: 5
 				},
 				current: 0,
 				indexPage: [{
@@ -53,7 +55,14 @@
 				}, {
 					tabBar: '/pages/tabBar/template/template',
 					index: '/pages/template/nav-button/nav-button'
-				}]
+				},{
+					tabBar: '/pages/tabBar/websites/websites',
+					index: '/pages/websites/list2detail-list/list2detail-list'
+				},{
+					tabBar: '/pages/tabBar/home/home',
+					index: '/pages/home/list2detail-list/list2detail-list'
+				},
+			]
 			}
 		},
 		watch: {
@@ -70,6 +79,7 @@
 						} else {
 							comp = path.split('/')[2]
 						}
+						console.log(path)
 						this.current = this.selected[comp]
 						for (const item of this.indexPage) {
 							if (path === item.tabBar) {
@@ -86,8 +96,11 @@
 		methods: {
 			toSecondMenu(e) {
 				const activeTabBar = '/' + e.pagePath
+				console.log('secondMenu' , activeTabBar)
 				for (const item of this.indexPage) {
 					if (activeTabBar === item.tabBar) {
+						console.log('secondMenu --' , activeTabBar)
+
 						uni.redirectTo({
 							url: item.index
 						})
@@ -147,7 +160,7 @@
 	}
 
 	.tab-bar-flex {
-		width: 360px;
+		width: 680px;
 	}
 
 	.phone-link {

@@ -48,12 +48,12 @@
 					// #ifdef APP-PLUS || H5 || MP-ALIPAY
 					{
 						id: 'navbar',
-						name: '计算工具2 Template',
+						name: '网站导航',
 						open: false,
 						pages: [
 							// #ifdef APP-PLUS || H5
 							{
-								name: '美元换算人民币',
+								name: '导航栏带自定义按钮',
 								url: 'nav-button'
 							},
 							{

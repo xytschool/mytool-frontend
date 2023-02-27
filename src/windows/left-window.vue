@@ -13,6 +13,8 @@
 	import API from '@/pages/tabBar/API/API.nvue'
 	import extUI from '@/pages/tabBar/extUI/extUI.nvue'
 	import templatePage from '@/pages/tabBar/template/template.nvue'
+	import websites from '@/pages/tabBar/websites/websites.nvue'
+	import home from '@/pages/tabBar/home/home.nvue'
 	import {
 		mapMutations,
 		mapState
@@ -25,7 +27,9 @@
 					'component',
 					'API',
 					'extUI',
-					'template'
+					'template',
+					'websites',
+					'home'
 				],
 				isPC: false
 			}
@@ -34,7 +38,9 @@
 			componentPage,
 			API,
 			extUI,
-			templatePage
+			templatePage,
+			websites,
+			home
 		},
 		computed: {
 			...mapState({
@@ -129,8 +135,10 @@
 							url: '/pages/error/404'
 						})
 					} else {
+						console.log('newRoute.path',newRoute.path)
 						this.setLeftWinActive(newRoute.path)
 						let active = newRoute.path.split('/')[2]
+						console.log(active)
 						if (this.nav.includes(active)) {
 							if (active === 'component') {
 								active = 'componentPage'
@@ -138,6 +146,7 @@
 							if (active === 'template') {
 								active = 'templatePage'
 							}
+							console.log('active', active)
 							this.setActive(active)
 						}
 					}

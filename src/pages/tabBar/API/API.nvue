@@ -44,7 +44,7 @@
         data() {
             // 暂时这么写，后面看怎么优化。
             let mediaPages = [{
-                    name: '图片',
+                    name: '图片-API',
                     url: 'image'
                 },
 				// #ifndef MP-LARK
@@ -85,7 +85,7 @@
 
             const list = [{
                     id: 'page',
-                    name: '界面',
+                    name: '文档处理-API',
                     open: false,
                     pages: [{
                             name: '设置导航条',

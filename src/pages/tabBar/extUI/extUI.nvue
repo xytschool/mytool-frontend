@@ -34,11 +34,11 @@
 					'load-more'
 				],
 				lists: [{
-						name: "uni-badge 数字角标",
+						name: "视频 extUI",
 						url: "badge"
 					},
 					{
-						name: "uni-breadcrumb 面包屑",
+						name: "图片",
 						url: "breadcrumb"
 					},
 					// {

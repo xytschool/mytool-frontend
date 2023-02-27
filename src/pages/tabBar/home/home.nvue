@@ -48,38 +48,8 @@
 					// #ifdef APP-PLUS || H5 || MP-ALIPAY
 					{
 						id: 'navbar',
-						name: '计算工具2 Template',
+						name: '账号设置',
 						open: false,
-						pages: [
-							// #ifdef APP-PLUS || H5
-							{
-								name: '美元换算人民币',
-								url: 'nav-button'
-							},
-							{
-								name: '导航栏带红点和角标',
-								url: 'nav-dot'
-							},
-							{
-								name: '导航栏带城市选择',
-								url: 'nav-city-dropdown'
-							},
-							{
-								name: '导航栏带搜索框',
-								url: 'nav-search-input'
-							},
-							// #endif
-							// #ifdef APP-PLUS || H5 || MP-ALIPAY
-							{
-								name: '透明渐变样式',
-								url: 'nav-transparent'
-							},
-							{
-								name: '导航栏带图片',
-								url: 'nav-image'
-							}
-							// #endif
-						]
 					},
 					// #endif
 					// #ifndef QUICKAPP-WEBVIEW || MP-KUAISHOU

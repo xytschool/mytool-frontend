@@ -35,33 +35,33 @@
 		data() {
 			return {
 				selected: {
-					component: 0,
-					API: 1,
-					extUI: 2,
-					template: 3,
+					code: 0,
+					document: 1,
+					media: 2,
+					calculation: 3,
 					websites: 4,
-					home: 5
+					home: 5,
 				},
 				current: 0,
 				indexPage: [{
-					tabBar: '/pages/tabBar/component/component',
-					index: '/pages/component/view/view'
+					tabBar: '/pages/tabBar/code/code',
+					index: '/pages/code/list2detail-list/list2detail-list'
 				}, {
-					tabBar: '/pages/tabBar/API/API',
-					index: '/pages/API/set-navigation-bar-title/set-navigation-bar-title'
+					tabBar: '/pages/tabBar/document/document',
+					index: '/pages/document/list2detail-list/list2detail-list'
 				}, {
-					tabBar: '/pages/tabBar/extUI/extUI',
-					index: '/pages/extUI/badge/badge'
+					tabBar: '/pages/tabBar/media/media',
+					index: '/pages/media/list2detail-list/list2detail-list'
 				}, {
-					tabBar: '/pages/tabBar/template/template',
-					index: '/pages/template/nav-button/nav-button'
+					tabBar: '/pages/tabBar/calculation/index',
+					index: '/pages/calculation/list2detail-list/list2detail-list'
 				},{
 					tabBar: '/pages/tabBar/websites/websites',
 					index: '/pages/websites/list2detail-list/list2detail-list'
 				},{
 					tabBar: '/pages/tabBar/home/home',
 					index: '/pages/home/list2detail-list/list2detail-list'
-				},
+				}
 			]
 			}
 		},
@@ -74,15 +74,16 @@
 						let path = newRoute.path
 						let comp
 						if (path === '/') {
-							comp = 'component'
-							path = '/pages/tabBar/component/component'
+							comp = 'code'
+							path = '/pages/tabBar/code/code'
 						} else {
 							comp = path.split('/')[2]
 						}
-						console.log(path)
+						console.log('handler page', path, comp, this.selected[comp])
 						this.current = this.selected[comp]
 						for (const item of this.indexPage) {
 							if (path === item.tabBar) {
+								console.log('redirectTo', item.index)	
 								uni.redirectTo({
 									url: item.index
 								})
@@ -99,7 +100,7 @@
 				console.log('secondMenu' , activeTabBar)
 				for (const item of this.indexPage) {
 					if (activeTabBar === item.tabBar) {
-						console.log('secondMenu --' , activeTabBar)
+						console.log('secondMenu --' , activeTabBar ,item.index )
 
 						uni.redirectTo({
 							url: item.index

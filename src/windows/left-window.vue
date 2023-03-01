@@ -9,12 +9,12 @@
 </template>
 
 <script>
-	import componentPage from '@/pages/tabBar/component/component.nvue'
-	import API from '@/pages/tabBar/API/API.nvue'
-	import extUI from '@/pages/tabBar/extUI/extUI.nvue'
-	import templatePage from '@/pages/tabBar/template/template.nvue'
 	import websites from '@/pages/tabBar/websites/websites.nvue'
 	import home from '@/pages/tabBar/home/home.nvue'
+	import codePage from '@/pages/tabBar/code/code.nvue'
+	import calculationPage from '@/pages/tabBar/calculation/index'
+	import mediaPage from '@/pages/tabBar/media/media.nvue'
+	import documentPage from '@/pages/tabBar/document/document'
 	import {
 		mapMutations,
 		mapState
@@ -24,23 +24,25 @@
 		data() {
 			return {
 				nav: [
-					'component',
-					'API',
-					'extUI',
-					'template',
+					'code',
+					'document',
+					'media',
+					'calculation',
 					'websites',
-					'home'
+					'home',
+					'code'
 				],
 				isPC: false
 			}
 		},
 		components: {
-			componentPage,
-			API,
-			extUI,
-			templatePage,
+			codePage,
+			documentPage,
+			mediaPage,
+			calculationPage,
 			websites,
-			home
+			home,
+			codePage
 		},
 		computed: {
 			...mapState({
@@ -52,7 +54,7 @@
 		mounted() {
 			isPcObserver = uni.createMediaQueryObserver(this)
 			isPhoneObserver = uni.createMediaQueryObserver(this)
-
+			//this.setActive('code')
 			isPcObserver.observe({
 				minWidth: 768
 			}, matched => {
@@ -127,9 +129,11 @@
 			handlerRoute(newRoute) {
 				if (this.isPC) {
 					if (newRoute.path === '/') {
-						// uni.redirectTo({
-						// 	url: '/pages/component/view/view'
-						// })
+						console.log('left window redircTo','/pages/code/list2detail-detail/list2detail-detail' )
+						uni.redirectTo({
+							url: '/pages/code/list2detail-detail/list2detail-detail'
+						})
+						this.setActive('codePage')
 					} else if (!newRoute.matched.length) {
 						uni.redirectTo({
 							url: '/pages/error/404'
@@ -140,12 +144,21 @@
 						let active = newRoute.path.split('/')[2]
 						console.log(active)
 						if (this.nav.includes(active)) {
-							if (active === 'component') {
-								active = 'componentPage'
+							if (active === 'media') {
+								active = 'mediaPage'
 							}
-							if (active === 'template') {
-								active = 'templatePage'
+							if (active === 'document') {
+								active = 'documentPage'
 							}
+
+							if (active === 'code') {
+								active = 'codePage'
+							}
+
+							if (active === 'calculation') {
+								active = 'calculationPage'
+							}
+
 							console.log('active', active)
 							this.setActive(active)
 						}

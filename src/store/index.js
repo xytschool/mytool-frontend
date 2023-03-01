@@ -18,8 +18,8 @@ const store = createStore({
 		colorIndex: 0,
 		colorList: ['#FF0000', '#00FF00', '#0000FF'],
 		noMatchLeftWindow: true,
-		active: 'componentPage',
-		leftWinActive: '/pages/component/view/view',
+		active: 'codePage',
+		leftWinActive: '/pages/code/list2detail-list/list2detail-list',
 		activeOpen: '',
 		menu: [],
 		univerifyErrorMsg: ''
